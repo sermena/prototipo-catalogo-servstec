@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipo - Catálogo de Servicios Institucionales</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <!-- Placeholder for the institutional logo -->
+            <img src="https://placehold.co/200x60/ffffff/2c3e50?text=LOGO+INSTITUCIONAL" alt="Logo Institucional" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/200x60?text=Logo';">
+            <h1>Catálogo de Servicios Institucionales</h1>
+        </div>
+        <div class="controls-container">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar departamento o servicio...">
+                <i class="fas fa-search"></i>
+            </div>
+            <!-- Interactive toggle to switch between viewer and admin roles -->
+            <div class="role-switcher">
+                <label for="role-toggle">Modo Administrador</label>
+                <label class="switch">
+                    <input type="checkbox" id="role-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumbs" id="breadcrumbs">
+        <a href="#" class="home-link">Inicio</a>
+    </div>
+
+    <main>
+        <!-- Welcome text for context -->
+        <div id="intro-section" class="intro">
+            <h2>Bienvenido al Catálogo de Servicios</h2>
+            <p>Esta herramienta interactiva reemplaza el archivo de Excel tradicional, permitiendo una navegación y consulta más intuitiva de los servicios y trámites que ofrece la institución. Explore las categorías a continuación para encontrar la información que necesita.</p>
+        </div>
+
+        <!-- Containers for dynamic content -->
+        <div class="categories-grid" id="categories-container"></div>
+        <div class="departments-grid" id="departments-container" style="display:none;"></div>
+        <div id="no-results" style="display:none; text-align: center; margin-top: 20px;">
+            <p>No se encontraron resultados para su búsqueda.</p>
+        </div>
+    </main>
+
+    <!-- Modal for Listing Services in a Department -->
+    <div class="modal" id="services-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Department Name</h2>
+            <div class="services-list" id="services-list"></div>
+            <div id="add-service-container"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Displaying Service Details -->
+    <div class="modal" id="service-detail-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="service-detail-title">Detalles del Servicio</h2>
+            <div class="service-detail-grid" id="service-detail-content"></div>
+            <div id="edit-service-button-container"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Editing a Service (Admin only) -->
+    <div class="modal" id="edit-service-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Editar Servicio</h2>
+            <form id="edit-service-form" class="edit-form"></form>
+        </div>
+    </div>
+
+    <!-- Toast Notification for user feedback -->
+    <div id="toast-notification" class="toast"></div>
+    
+    <footer>
+        <p>Oficina de Planificación Institucional - Prototipo V1.0 - Agosto 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
